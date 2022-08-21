@@ -66,3 +66,6 @@ if(match){
     res.status(401).json({status:false,msg:'user does not exist'})
 }
 }
+
+
+export {userAuth,handRegistration}

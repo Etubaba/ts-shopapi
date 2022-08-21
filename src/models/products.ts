@@ -1,16 +1,11 @@
 import mongoose from "mongoose";
+import Iproduct from "../interface";
 
 const {Schema} = mongoose
 
-interface ProductInter{
-    image:String,
-    title:String,
-    price:number,
-    description:String,
-    rating:number,
-}
 
-const productSchema =new Schema<ProductInter>({
+
+const productSchema =new Schema<Iproduct>({
     image:{type:String, required:true},
     title:{type:String, required:true},
     price:{type:Number, required:true},
