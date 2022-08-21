@@ -42,28 +42,27 @@ const userAuth=async (req:Request, res:Response) => {
         username:string | undefined,
         password:string
     }
-    type userTypes ={
-        email:string 
-        username:string
-        password:string
-    }
+  
 const {email,username,password}:loginTypes = req.body
 
-const userChoice:string|undefined = email===undefined ? username:email
+// const userChoice:string|undefined = email===undefined ? username:email
 
-const user:userTypes =  await User.find({
-    $or:[
-        {
-            email:email
-        },
-        {
-            username:username
-        }
-    ]
-})
+const user=await User.findOne({$or:[
+    {email:email},
+    {username:username}
+]})
 
-const match:boolean=await bcrypt.compare(user.password,password)
+if(user){
+const match:boolean=await bcrypt.compare(user?.password,password)
+
+if(match){
+    res.status(200).json({status:true,data:user})
+}else{
+    res.status(401).json({status:false,msg:'Password does not match'})
+}
 
 
-
+}else{
+    res.status(401).json({status:false,msg:'user does not exist'})
+}
 }
