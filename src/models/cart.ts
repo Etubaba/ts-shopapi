@@ -1,14 +1,8 @@
 import mongoose from "mongoose";
+import CartI from "../interface"
 const {Schema}=mongoose
 
-interface CartI{
-    userId:String,
-    productId:String,
-    productName:String,
-    price:Number,
-    image:String,
-    
-}
+
 const cartSchema=new Schema<CartI>({
     userId:{
         type:String,
@@ -20,7 +14,7 @@ const cartSchema=new Schema<CartI>({
     productName:{
         type:String,
         required:true},
-    price:{type:String, required:true},
+    price:{type:Number, required:true},
     image:{type:String, required:true},
 })
 

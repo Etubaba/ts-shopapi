@@ -1,13 +1,10 @@
 import mongoose, { Schema } from "mongoose";
+import IUser from '../interface'
 
 
 const {Document } = mongoose
 
-interface IUser extends Document {
-    email: string;
-    username: string;
-    password: string;
-}
+
 
 const userSchema: Schema= new Schema<IUser>({
     email: {
