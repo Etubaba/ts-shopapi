@@ -34,3 +34,12 @@ export default interface IUser extends Document {
     username: string;
     password: string;
 }
+
+export type deleteItem ={
+    userId:string,
+    cartId:string
+}
+export type addItem ={
+    userId:string,
+    productId:string
+}
