@@ -18,6 +18,7 @@ const orderSchema = new Schema<IOrder>({
     },
     price: { type: Number, required: true },
     image: { type: String, required: true },
+    status: { type: String, required: true },
     transactionId: { type: String, required: true },
 })
 

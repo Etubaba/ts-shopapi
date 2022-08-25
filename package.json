@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": " Shop Backend with typescript",
   "main": "server.js",
-   "engines": {
+  "engines": {
     "node": "16.15.1"
   },
   "scripts": {
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/mongoose": "^5.11.97",
+    "@types/multer": "^1.4.7",
     "@vercel/node": "^2.5.8",
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.30.1",

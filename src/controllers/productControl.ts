@@ -15,22 +15,26 @@ const productList = async (req: Request, res: Response) => {
 }
 
 const createProduct = async (req: Request, res: Response) => {
+console.log('i de work');
+    const {  productName, description, price }: Iproduct = req.body
 
-    const { image, title, description, price, rating }: Iproduct = req.body
+         const {path}:any= req.file
+         const image=path
 
-    if (!image || !title || !description || !price || !rating) return res.status(401)
+
+    if (!image || !productName || !description || !price) return res.status(401)
         .json({ status: false, msg: 'All fields are required' })
     try {
         const newProduct = await Product.create({
             image,
-            title,
+            productName,
             description,
-            price,
-            rating
+            price
         })
         res.status(201).json({ status: true, data: newProduct });
     } catch (err: any) {
-        res.status(500).json({ status: false, msg: `${err.message}` });
+        console.log(err);
+        // res.json({ status: false, msg: `${err.message}` });
     }
 
 }
@@ -51,7 +55,7 @@ const deleteProduct = async (req: Request, res: Response) => {
 const updateProduct = async (req: Request, res: Response) => {
     const id: string = req.params.id
     if (!id) res.status(400).json({ status: false, msg: `ID required ` });
-    const { image, title, description, price, rating }: Iproduct = req.body
+    const { image, productName, description, price, rating }: Iproduct = req.body
 
     try {
         const productToUpdate = await Product.findOne({ _id: id })
@@ -60,7 +64,7 @@ const updateProduct = async (req: Request, res: Response) => {
             productToUpdate.price = price,
                 productToUpdate.rating = rating,
                 productToUpdate.description = description,
-                productToUpdate.title = title,
+                productToUpdate.productName = productName,
                 productToUpdate.image = image
             const saveAm = productToUpdate.save()
             res.status(200).json({ status: true, msg: 'product updated successfully' })

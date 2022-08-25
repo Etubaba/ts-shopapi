@@ -2,10 +2,10 @@ import { Document } from "mongoose";
 
 export default interface Iproduct{
     image:String,
-    title:String,
+    productName:String,
     price:number,
     description:string,
-    rating:number,
+    rating?:number,
 }
 
 
@@ -14,7 +14,8 @@ export default interface OrderI{
     productId:String,
     productName:String,
     price:number,
-    transactionId:String
+    transactionId:String,
+    status:String,
     image:String,
     
 }
@@ -42,4 +43,10 @@ export type deleteItem ={
 export type addItem ={
     userId:string,
     productId:string
+}
+
+export type addOrder={
+    transactionId:string,
+    userId:string,
+    productId:string[]
 }

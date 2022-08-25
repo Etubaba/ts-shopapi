@@ -1,7 +1,7 @@
 import {Response, Request, response} from 'express'
 import { addItem, deleteItem } from '../interface'
-import cart from '../models/cart.js'
-import Product from '../models/products.js'
+import cart from '../models/cart'
+import Product from '../models/products'
 
 
 

@@ -7,7 +7,7 @@ const {Schema} = mongoose
 
 const productSchema =new Schema<Iproduct>({
     image:{type:String, required:true},
-    title:{type:String, required:true},
+    productName:{type:String, required:true},
     price:{type:Number, required:true},
     description:{type:String, required:true},
     rating:{type:Number, default:1, required:true }
