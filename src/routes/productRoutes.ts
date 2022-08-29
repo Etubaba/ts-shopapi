@@ -4,7 +4,7 @@
  import {productList,createProduct,updateProduct,deleteProduct } from '../controllers/productControl';
 
  const router:Router=express.Router();
- const upload=multer({storage:storage});
+ const upload=multer({});
 
  router.get('/products',productList)
  router.post('/create/product',upload.single('image'),createProduct)

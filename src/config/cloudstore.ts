@@ -13,9 +13,12 @@ type levels ={
     folder:string,
     allowedFormats:string[]
 }
- const options ={
- 
+ const options:levels={
        folder: 'CloudinaryDemo',
+    //    format:(req:any, file:any) =>{
+    //           console.log('e reach')
+    //           return ['jpeg', 'png', 'jpg']
+    //    },
        allowedFormats: ['jpeg', 'png', 'jpg']
        
     }
@@ -23,7 +26,4 @@ const storage = new CloudinaryStorage({
     cloudinary,
     params:options
 });
-
-
-
 export default storage

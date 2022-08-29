@@ -15,15 +15,21 @@ const productList = async (req: Request, res: Response) => {
 }
 
 const createProduct = async (req: Request, res: Response) => {
-console.log('i de work');
+
     const {  productName, description, price }: Iproduct = req.body
+    // const file=req.file 
+    
+  console.log(req.file)
 
-         const {path}:any= req.file
-         const image=path
-
-
-    if (!image || !productName || !description || !price) return res.status(401)
-        .json({ status: false, msg: 'All fields are required' })
+    if (!productName || !description || !price ){res.status(401)
+        .json({ status: false, msg: 'All fields are required' })}else{
+        
+        }
+  if(req.file){
+       const image = req?.file.buffer.toString('base64') 
+      
+        // const image=req.file?.path 
+   
     try {
         const newProduct = await Product.create({
             image,
@@ -33,9 +39,10 @@ console.log('i de work');
         })
         res.status(201).json({ status: true, data: newProduct });
     } catch (err: any) {
-        console.log(err);
+        console.log('error',err);
         // res.json({ status: false, msg: `${err.message}` });
     }
+      }
 
 }
 
