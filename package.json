@@ -2,13 +2,14 @@
   "name": "tsbackend",
   "version": "1.0.0",
   "description": " Shop Backend with typescript",
-  "main": "dist/server.js",
+  "main": "server.ts",
   "engines": {
     "node": "16.15.1"
   },
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
-    "build": "tsc --project ."
+    "build": "tsc --project .",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
