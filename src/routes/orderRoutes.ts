@@ -8,7 +8,7 @@
 
  router.get('/user/order/:id',userOrder)
  router.post('/create/order',createOrder)
- router.put('update/orders',updateOrder)
+ router.put('/update/order',updateOrder)
  router.get('get/orders',allOrders)
 
  export default router

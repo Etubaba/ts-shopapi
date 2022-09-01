@@ -21,7 +21,7 @@ try{
                     price:productPayFor.price,
                     image:productPayFor.image,
                     transactionId,
-                    status:'processing'           
+                         
                })
                res.status(200).json({status:true,data:order})
         }else{
