@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
+    "postinstall": "tsc",
     "build": "tsc --project ."
   },
   "keywords": [],
