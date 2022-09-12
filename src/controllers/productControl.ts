@@ -86,5 +86,17 @@ const updateProduct = async (req: Request, res: Response) => {
     }
 }
 
+const getSingleProduct= async (req: Request, res: Response) => {
+    const {id}=req.params
+    try{
+       const product = await Product.findOne({_id:id});
+       if(product){
+        res.status(200).json({status:true, data:product})
+       }
+    }catch (e: any) {
+        console.log(e.message);
+    }
+}
 
-export { productList,deleteProduct,createProduct,updateProduct}
+
+export { productList,deleteProduct,createProduct,updateProduct,getSingleProduct}
