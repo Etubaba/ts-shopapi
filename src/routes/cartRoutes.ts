@@ -2,7 +2,7 @@
  import {deleteOneCartItem,createCart,clearAllCartItems,getUserCart} from '../controllers/cartController';
 
  const router:Router=express.Router();
- router.post('/delete/cartitem',deleteOneCartItem)
+//  router.post('/delete/cartitem',deleteOneCartItem)
  router.post('/create/cart',createCart)
  router.delete('/clear/user/cart/:id',clearAllCartItems)
  router.get('/user/cart/:id',getUserCart)
