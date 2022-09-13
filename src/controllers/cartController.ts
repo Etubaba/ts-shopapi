@@ -55,7 +55,7 @@ const  getUserCart= async (req: Request, res: Response) => {
 
 
      }catch (err: any) {
-        res.status(500).json({status:false,msg:`${err.message}`})
+        res.status(500).json({status:false,msg:`something went wrong.${err.message}`})
      }
 }
 const deleteOneCartItem =async (req:Request, res:Response) => {
